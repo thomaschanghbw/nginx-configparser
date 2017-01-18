@@ -61,3 +61,8 @@ TEST_F(NginxStringConfigTest, UnclosedBraces)
 {
   EXPECT_FALSE(ParseString("hello {hi hi;"));
 }
+
+TEST_F(NginxStringConfigTest, ConsecutiveCurlyBraces)
+{
+  EXPECT_TRUE(ParseString("hello {hi {hey hola;}}"));
+}
